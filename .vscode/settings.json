@@ -6,5 +6,6 @@
   },
   "eslint.alwaysShowStatus": true,
   "eslint.autoFixOnSave": false,
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
 }

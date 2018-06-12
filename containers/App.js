@@ -1,9 +1,13 @@
+// @flow
+
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import InputPreview from '../components/InputPreview';
 import setMessage from '../actions/message';
+import Button from '../styles';
 
 type Props = {
   dispatch: (action: Object) => void,
@@ -26,7 +30,7 @@ class App extends React.Component<Props> {
         <InputPreview value={message} onChange={this.handleChange} />
         <p>{message}</p>
         <Link to="/about">
-          <button>Go to about page</button>
+          <Button>Go to about page</Button>
         </Link>
       </React.Fragment>
     );
