@@ -7,7 +7,7 @@ type Props = {
   onChange: (value: string) => void,
 };
 
-export default class InputPreview extends React.PureComponent<Props> {
+class InputPreview extends React.PureComponent<Props> {
   static defaultProps = {
     value: 'value',
   };
@@ -18,6 +18,7 @@ export default class InputPreview extends React.PureComponent<Props> {
 
   render() {
     const { value } = this.props;
+
     return (
       <div>
         <input type="text" value={value} onChange={this.handleChange} />
@@ -25,3 +26,5 @@ export default class InputPreview extends React.PureComponent<Props> {
     );
   }
 }
+
+export default InputPreview;

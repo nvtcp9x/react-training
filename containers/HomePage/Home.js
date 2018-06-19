@@ -1,37 +1,29 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import InputPreview from '../../components/InputPreview';
-import setMessage from './actions';
+import Posts from '../Posts/Posts';
+import Counter from '../Counter/Counter';
+import PostsByUser from '../PostsByUser/PostsByUser';
 import Button from '../../styles';
 
-type Props = {
-  dispatch: (action: Object) => void,
-  messageReducer: Object,
-};
+const HomeButton = Button.extend`
+  background: #bada55;
+`;
 
-class Home extends React.Component<Props> {
-  static defaultProps = {
-    message: 'message',
-  };
-  handleChange = value => {
-    this.props.dispatch(setMessage(value));
-  };
+const Home = () => (
+  <div>
+    Home
+    <Link to="/about">
+      <HomeButton>Go about Page</HomeButton>
+    </Link>
+    <h1>Reselect Redux</h1>
+    <Posts />
+    <Counter />
+    <h2>User 1</h2>
+    <PostsByUser user="user-1" />
+    <h2>User 2</h2>
+    <PostsByUser user="user-2" />
+  </div>
+);
 
-  render() {
-    const { message } = this.props.messageReducer;
-
-    return (
-      <React.Fragment>
-        <InputPreview value={message} onChange={this.handleChange} />
-        <p>{message}</p>
-        <Link to="/about">
-          <Button>Go to about page</Button>
-        </Link>
-      </React.Fragment>
-    );
-  }
-}
-
-export default connect(state => state)(Home);
+export default Home;

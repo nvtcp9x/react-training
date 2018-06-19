@@ -1,17 +1,17 @@
 import { combineReducers } from 'redux';
 
-import messageReducer from '../containers/HomePage/reducer';
-import usersByIdReducer from './usersByIdReducer';
-import postsByIdReducer from './postsByIdReducer';
-import postListingReducer from './postListingReducer';
-import counterReducer from '../containers/Counter/reducer';
+import usersById from './usersByIdReducer';
+import postsById from './postsByIdReducer';
+import postListing from './postListingReducer';
+import count from '../containers/Counter/reducer';
 
-const rootReducer = combineReducers({
-  messageReducer,
-  usersById: usersByIdReducer,
-  postsById: postsByIdReducer,
-  postListing: postListingReducer,
-  count: counterReducer,
-});
+const createReducer = asyncReducers =>
+  combineReducers({
+    usersById,
+    postsById,
+    postListing,
+    count,
+    ...asyncReducers,
+  });
 
-export default rootReducer;
+export default createReducer;
